@@ -13,6 +13,8 @@
 		1CD49F941B89B4AE0050E5A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD49F931B89B4AE0050E5A4 /* Images.xcassets */; };
 		1CD49F971B89B4AE0050E5A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD49F951B89B4AE0050E5A4 /* LaunchScreen.xib */; };
 		1CD49FA31B89B4AE0050E5A4 /* ShakesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD49FA21B89B4AE0050E5A4 /* ShakesTests.swift */; };
+		CB7B71CEFE305555513159BC /* ShakeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7671701D605EFA454279 /* ShakeDelegate.swift */; };
+		CB7B78EDCA7F29740987B699 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7A60551FF9ED3892B6AD /* ShakeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		1CD49F9C1B89B4AE0050E5A4 /* ShakesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShakesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD49FA11B89B4AE0050E5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CD49FA21B89B4AE0050E5A4 /* ShakesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakesTests.swift; sourceTree = "<group>"; };
+		CB7B7671701D605EFA454279 /* ShakeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeDelegate.swift; sourceTree = "<group>"; };
+		CB7B7A60551FF9ED3892B6AD /* ShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				1CD49F931B89B4AE0050E5A4 /* Images.xcassets */,
 				1CD49F951B89B4AE0050E5A4 /* LaunchScreen.xib */,
 				1CD49F8A1B89B4AE0050E5A4 /* Supporting Files */,
+				CB7B7A60551FF9ED3892B6AD /* ShakeViewController.swift */,
+				CB7B7671701D605EFA454279 /* ShakeDelegate.swift */,
 			);
 			path = Shakes;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 		1CD49F7F1B89B4AE0050E5A4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Fringe81 co, Ltd.";
 				TargetAttributes = {
@@ -214,6 +222,8 @@
 			files = (
 				1CD49F8F1B89B4AE0050E5A4 /* ViewController.swift in Sources */,
 				1CD49F8D1B89B4AE0050E5A4 /* AppDelegate.swift in Sources */,
+				CB7B78EDCA7F29740987B699 /* ShakeViewController.swift in Sources */,
+				CB7B71CEFE305555513159BC /* ShakeDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
