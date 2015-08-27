@@ -23,9 +23,12 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
 
         num = 10972
 
-        firstReserveShakeVC = createShakeVC("http://www.apple.com")
-        secondReserveShakeVC = createShakeVC("https://www.google.com")
-        thirdReserveShakeVC = createShakeVC("https://flipboard.com/")
+        firstReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
+        secondReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
+        thirdReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
+//        firstReserveShakeVC = createShakeVC("http://www.apple.com")
+//        secondReserveShakeVC = createShakeVC("https://www.google.com")
+//        thirdReserveShakeVC = createShakeVC("https://flipboard.com/")
     }
 
     func createShakeVC(urlStr:String) -> ShakeViewController {
@@ -35,7 +38,7 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
         shakeVC.delegate = self
 
         // webView読み込み
-        shakeVC.createWebView(urlStr)
+        shakeVC.loadShakeMainView(urlStr)
 
         // アニメーションを設定する.
         shakeVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl

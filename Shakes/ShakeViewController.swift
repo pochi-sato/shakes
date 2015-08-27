@@ -7,8 +7,10 @@ import UIKit
 
 class ShakeViewController: UIViewController, UIWebViewDelegate {
     var delegate: ShakeDelegate!
-
     private var myWebView: UIWebView!
+    private var myImage: UIImage!
+    private var myImageView: UIImageView!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,52 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
 
     }
 
-    func createWebView(urlStr: String) {
+    func loadShakeMainView(urlStr: String) {
+//        self.loadWebView(urlStr)
+        self.loadImageView(urlStr)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    /*
+    シェイク開始
+    */
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
+            println("shake start in shakevc!!!")
+            // 開始時の処理
+            delegate.onShake(self);
+        }
+    }
+
+    /*
+    シェイク終了
+    */
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
+            println("shake end in shakevc!!!")
+            // 終了時の処理
+        }
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        self.view.frame = UIScreen.mainScreen().bounds
+        self.view.backgroundColor = UIColor.blackColor()
+        self.myImageView = UIImageView(frame: UIScreen.mainScreen().bounds)
+        self.myImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        self.myImageView.image = self.myImage
+        self.view.addSubview(self.myImageView)
+    }
+}
+
+// webViewで表示する場合 ++++++++++++++++++++++++++++++++++++++++
+
+extension ShakeViewController {
+
+    func loadWebView(urlStr: String) {
         // WebViewを生成.
         myWebView = UIWebView()
 
@@ -55,29 +102,28 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
 //        println("webViewDidStartLoad")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+}
 
-    /*
-    シェイク開始
-    */
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            println("shake start in shakevc!!!")
-            // 開始時の処理
-        delegate.onShake(self);
-        }
-    }
+// imageViewで表示する場合 ++++++++++++++++++++++++++++++++++++++++
 
-    /*
-    シェイク終了
-    */
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            println("shake end in shakevc!!!")
-            // 終了時の処理
-        }
+extension ShakeViewController {
+
+    func loadImageView(urlStr: String) {
+        println("doyo1")
+        // 通信先のURLを生成.
+        let myUrl: NSURL = NSURL(string: urlStr)!
+        println("doyo2")
+        // セッションの生成.
+        let mySession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        println("doyo3")
+        // 通信のタスクを生成.
+        let myTask = mySession.dataTaskWithURL(myUrl, completionHandler: {
+            (data, response, err) in
+            println("res:\(response),error:\(err)")
+            self.myImage = UIImage(data: data)
+        })
+        // タスクの実行.
+        myTask.resume()
     }
 }
+
