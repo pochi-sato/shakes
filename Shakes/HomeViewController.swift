@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Shakes
 //
 //  Created by Takuto Sato on 2015/08/23.
@@ -13,19 +13,21 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
     private var firstReserveShakeVC: ShakeViewController!
     private var secondReserveShakeVC: ShakeViewController!
     private var thirdReserveShakeVC: ShakeViewController!
+    private var contents: Contents! = Contents()
 
-    private var num: Int!
+    private var count: Int! = 0
+
+//    init() {
+//        contents = Contents()
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        println("unko");
 
-        num = 10972
-
-        firstReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
-        secondReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
-        thirdReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
+        firstReserveShakeVC = createShakeVC(contents.getNextURL())
+        secondReserveShakeVC = createShakeVC(contents.getNextURL())
+        thirdReserveShakeVC = createShakeVC(contents.getNextURL())
 //        firstReserveShakeVC = createShakeVC("http://www.apple.com")
 //        secondReserveShakeVC = createShakeVC("https://www.google.com")
 //        thirdReserveShakeVC = createShakeVC("https://flipboard.com/")
@@ -77,7 +79,7 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
     */
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
         if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            println("shake start!!!")
+//            println("shake start!!!")
             // 開始時の処理
             self.onShake(self)
         }
@@ -89,21 +91,24 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
             // 終了時の処理
-            println("shake end!!!")
+//            println("shake end!!!")
         }
     }
 
     func onShake(presentVC:UIViewController) {
-        println("onshake")
+//        println("onshake")
 
         // Viewの移動する.
-        presentVC.presentViewController(firstReserveShakeVC, animated: true, completion: nil)
+        presentVC.presentViewController(firstReserveShakeVC, animated: true, completion: {
+            println("おわったで")
+
+        })
         firstReserveShakeVC = secondReserveShakeVC
         secondReserveShakeVC = thirdReserveShakeVC
-        thirdReserveShakeVC = createShakeVC("http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg")
-        num!++
+        thirdReserveShakeVC = createShakeVC(contents.getNextURL())
+        count!++
 
-        println("num:\(num) ")
+        println("count:\(count) ")
     }
 
 }

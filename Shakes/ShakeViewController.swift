@@ -15,8 +15,6 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        println("unko");
-
     }
 
     func loadShakeMainView(urlStr: String) {
@@ -34,7 +32,7 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
     */
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
         if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            println("shake start in shakevc!!!")
+//            println("shake start in shakevc!!!")
             // 開始時の処理
             delegate.onShake(self);
         }
@@ -45,7 +43,7 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
     */
     override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
         if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-            println("shake end in shakevc!!!")
+//            println("shake end in shakevc!!!")
             // 終了時の処理
         }
     }
@@ -109,17 +107,13 @@ extension ShakeViewController {
 extension ShakeViewController {
 
     func loadImageView(urlStr: String) {
-        println("doyo1")
         // 通信先のURLを生成.
         let myUrl: NSURL = NSURL(string: urlStr)!
-        println("doyo2")
         // セッションの生成.
         let mySession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        println("doyo3")
         // 通信のタスクを生成.
         let myTask = mySession.dataTaskWithURL(myUrl, completionHandler: {
             (data, response, err) in
-            println("res:\(response),error:\(err)")
             self.myImage = UIImage(data: data)
         })
         // タスクの実行.
