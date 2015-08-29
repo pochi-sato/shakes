@@ -17,10 +17,6 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
 
     private var count: Int! = 0
 
-//    init() {
-//        contents = Contents()
-//    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -98,10 +94,11 @@ class ViewController: UIViewController, UIWebViewDelegate, ShakeDelegate {
     func onShake(presentVC:UIViewController) {
 //        println("onshake")
 
+        let countView = ShakeCountLabel(count: count)
+        firstReserveShakeVC.view.addSubview(countView)
         // Viewの移動する.
         presentVC.presentViewController(firstReserveShakeVC, animated: true, completion: {
             println("おわったで")
-
         })
         firstReserveShakeVC = secondReserveShakeVC
         secondReserveShakeVC = thirdReserveShakeVC
