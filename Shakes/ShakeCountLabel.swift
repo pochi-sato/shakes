@@ -7,12 +7,17 @@ import UIKit
 
 class ShakeCountLabel:UILabel {
     private let radius: CGFloat = 30.0
+    private let rightMargin: CGFloat = 10.0
+    private let bottomMargin: CGFloat = 10.0
     init(count: Int) {
         super.init(frame: CGRectZero)
-        self.frame = CGRectMake(0,0,radius * 2,radius * 2)
-        self.backgroundColor = UIColor.hexStr("2E44B2", alpha: 1.0)
-        self.contentMode = UIViewContentMode.Center
+        self.frame = CGRectMake(Utils.sharedInstance.getVerticalWidth() - (radius * 2) - rightMargin, Utils.sharedInstance.getVerticalHeight() - (radius * 2) - bottomMargin, radius * 2, radius * 2)
+        self.backgroundColor = UIColor.hexStr("2E44B2", alpha: 0.6)
+//        self.contentMode = UIViewContentMode.Top
         self.text = count.description
+//        self.font = UIFont(name: "MarkerFelt-Wide", size: 38)
+//        self.font = UIFont(name: "Optima-ExtraBlack", size: 28)
+        self.font = UIFont(name: "Superclarendon-BlackItalic", size: 24)
         self.layer.masksToBounds = true // 枠を丸くする.
         self.layer.cornerRadius = radius // コーナーの半径.
         self.textColor = UIColor.hexStr("FFD75B", alpha: 1.0) // 文字の色を白にする.

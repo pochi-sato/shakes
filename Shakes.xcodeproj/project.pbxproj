@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		1CD49F8D1B89B4AE0050E5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD49F8C1B89B4AE0050E5A4 /* AppDelegate.swift */; };
-		1CD49F8F1B89B4AE0050E5A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD49F8E1B89B4AE0050E5A4 /* HomeViewController.swift */; };
+		1CD49F8F1B89B4AE0050E5A4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD49F8E1B89B4AE0050E5A4 /* HomeVC.swift */; };
 		1CD49F921B89B4AE0050E5A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD49F901B89B4AE0050E5A4 /* Main.storyboard */; };
 		1CD49F941B89B4AE0050E5A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD49F931B89B4AE0050E5A4 /* Images.xcassets */; };
 		1CD49F971B89B4AE0050E5A4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CD49F951B89B4AE0050E5A4 /* LaunchScreen.xib */; };
 		1CD49FA31B89B4AE0050E5A4 /* ShakesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD49FA21B89B4AE0050E5A4 /* ShakesTests.swift */; };
 		CB7B71CEFE305555513159BC /* ShakeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7671701D605EFA454279 /* ShakeDelegate.swift */; };
 		CB7B747BED40F8161B638FE3 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B71EB52DF9D4A0A4DCC72 /* Contents.swift */; };
-		CB7B78EDCA7F29740987B699 /* ShakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7A60551FF9ED3892B6AD /* ShakeViewController.swift */; };
-		CB7B79692E8467F969E19907 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B78B537C9C4506BAEAA89 /* UIColorExtension.swift */; };
+		CB7B74CFEFAE8F527E3B8625 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7A3D406D2F9FCEA7F55E /* Utils.swift */; };
+		CB7B789A2D1F1D4D17063258 /* ShakeVCAnimateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7EA120D05B74F0D2F4DC /* ShakeVCAnimateEx.swift */; };
+		CB7B78EDCA7F29740987B699 /* ShakeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7A60551FF9ED3892B6AD /* ShakeVC.swift */; };
+		CB7B79692E8467F969E19907 /* UIColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B78B537C9C4506BAEAA89 /* UIColorEx.swift */; };
 		CB7B7FC89BE031F7B3A2263F /* ShakeCountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B72641495DB794FB1EBFB /* ShakeCountLabel.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +36,7 @@
 		1CD49F871B89B4AE0050E5A4 /* Shakes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shakes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD49F8B1B89B4AE0050E5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CD49F8C1B89B4AE0050E5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1CD49F8E1B89B4AE0050E5A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1CD49F8E1B89B4AE0050E5A4 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		1CD49F911B89B4AE0050E5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CD49F931B89B4AE0050E5A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CD49F961B89B4AE0050E5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,8 +46,10 @@
 		CB7B71EB52DF9D4A0A4DCC72 /* Contents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
 		CB7B72641495DB794FB1EBFB /* ShakeCountLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeCountLabel.swift; sourceTree = "<group>"; };
 		CB7B7671701D605EFA454279 /* ShakeDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeDelegate.swift; sourceTree = "<group>"; };
-		CB7B78B537C9C4506BAEAA89 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		CB7B7A60551FF9ED3892B6AD /* ShakeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeViewController.swift; sourceTree = "<group>"; };
+		CB7B78B537C9C4506BAEAA89 /* UIColorEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorEx.swift; sourceTree = "<group>"; };
+		CB7B7A3D406D2F9FCEA7F55E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		CB7B7A60551FF9ED3892B6AD /* ShakeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeVC.swift; sourceTree = "<group>"; };
+		CB7B7EA120D05B74F0D2F4DC /* ShakeVCAnimateEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeVCAnimateEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,16 +92,18 @@
 			isa = PBXGroup;
 			children = (
 				1CD49F8C1B89B4AE0050E5A4 /* AppDelegate.swift */,
-				1CD49F8E1B89B4AE0050E5A4 /* HomeViewController.swift */,
+				1CD49F8E1B89B4AE0050E5A4 /* HomeVC.swift */,
 				1CD49F901B89B4AE0050E5A4 /* Main.storyboard */,
 				1CD49F931B89B4AE0050E5A4 /* Images.xcassets */,
 				1CD49F951B89B4AE0050E5A4 /* LaunchScreen.xib */,
 				1CD49F8A1B89B4AE0050E5A4 /* Supporting Files */,
-				CB7B7A60551FF9ED3892B6AD /* ShakeViewController.swift */,
+				CB7B7A60551FF9ED3892B6AD /* ShakeVC.swift */,
 				CB7B7671701D605EFA454279 /* ShakeDelegate.swift */,
 				CB7B71EB52DF9D4A0A4DCC72 /* Contents.swift */,
 				CB7B72641495DB794FB1EBFB /* ShakeCountLabel.swift */,
-				CB7B78B537C9C4506BAEAA89 /* UIColorExtension.swift */,
+				CB7B78B537C9C4506BAEAA89 /* UIColorEx.swift */,
+				CB7B7A3D406D2F9FCEA7F55E /* Utils.swift */,
+				CB7B7EA120D05B74F0D2F4DC /* ShakeVCAnimateEx.swift */,
 			);
 			path = Shakes;
 			sourceTree = "<group>";
@@ -229,13 +235,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CD49F8F1B89B4AE0050E5A4 /* HomeViewController.swift in Sources */,
+				1CD49F8F1B89B4AE0050E5A4 /* HomeVC.swift in Sources */,
 				1CD49F8D1B89B4AE0050E5A4 /* AppDelegate.swift in Sources */,
-				CB7B78EDCA7F29740987B699 /* ShakeViewController.swift in Sources */,
+				CB7B78EDCA7F29740987B699 /* ShakeVC.swift in Sources */,
 				CB7B71CEFE305555513159BC /* ShakeDelegate.swift in Sources */,
 				CB7B747BED40F8161B638FE3 /* Contents.swift in Sources */,
 				CB7B7FC89BE031F7B3A2263F /* ShakeCountLabel.swift in Sources */,
-				CB7B79692E8467F969E19907 /* UIColorExtension.swift in Sources */,
+				CB7B79692E8467F969E19907 /* UIColorEx.swift in Sources */,
+				CB7B74CFEFAE8F527E3B8625 /* Utils.swift in Sources */,
+				CB7B789A2D1F1D4D17063258 /* ShakeVCAnimateEx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

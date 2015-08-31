@@ -5,11 +5,11 @@
 
 import UIKit
 
-class ShakeViewController: UIViewController, UIWebViewDelegate {
+class ShakeVC: UIViewController, UIWebViewDelegate {
     var delegate: ShakeDelegate!
     private var myWebView: UIWebView!
     private var myImage: UIImage!
-    private var myImageView: UIImageView!
+    var myImageView: UIImageView!
 
 
     override func viewDidLoad() {
@@ -50,7 +50,8 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
 
     override func viewWillAppear(animated: Bool) {
         self.view.frame = UIScreen.mainScreen().bounds
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.hexStr("F9F8FF", alpha: 0.9)
+//        self.view.backgroundColor = UIColor.blackColor()
         self.myImageView = UIImageView(frame: UIScreen.mainScreen().bounds)
         self.myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.myImageView.image = self.myImage
@@ -60,7 +61,7 @@ class ShakeViewController: UIViewController, UIWebViewDelegate {
 
 // webViewで表示する場合 ++++++++++++++++++++++++++++++++++++++++
 
-extension ShakeViewController {
+extension ShakeVC {
 
     func loadWebView(urlStr: String) {
         // WebViewを生成.
@@ -104,7 +105,7 @@ extension ShakeViewController {
 
 // imageViewで表示する場合 ++++++++++++++++++++++++++++++++++++++++
 
-extension ShakeViewController {
+extension ShakeVC {
 
     func loadImageView(urlStr: String) {
         // 通信先のURLを生成.

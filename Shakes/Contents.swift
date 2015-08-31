@@ -5,9 +5,9 @@
 
 import Foundation
 
-class Contents {
+struct Contents {
     private var num = 10971
-    func getNextURL() -> String {
+    mutating func getNextURL() -> String {
         num++
         return "http://s3-ap-northeast-1.amazonaws.com/topicks/article_thumb/\(num)_original.jpg"
     }
