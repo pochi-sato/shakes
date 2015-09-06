@@ -21,23 +21,107 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
         super.viewDidLoad()
 
 
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            //make URL of google feed api
+            var urlString = "http://localhost:3000/contents"
+            var url = NSURL(string: urlString)
 
-        firstReserveShakeVC = createShakeVC(contents.getNextURL())
-        secondReserveShakeVC = createShakeVC(contents.getNextURL())
-        thirdReserveShakeVC = createShakeVC(contents.getNextURL())
+            //download by NSSession
+            var task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler:{
+                [unowned self]
+                (data, response, error) -> Void in
+                //convert json data to dictionary
+                // force downcast
+                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                dict = dict as Dictionary
+
+                println(dict)
+                self.firstReserveShakeVC = self.renderShakeVC(dict)
+            })
+            task.resume()
+        })
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            //make URL of google feed api
+            var urlString = "http://localhost:3000/contents"
+            var url = NSURL(string: urlString)
+
+            //download by NSSession
+            var task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler:{
+                [unowned self]
+                (data, response, error) -> Void in
+                //convert json data to dictionary
+                // force downcast
+                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+
+                println(dict)
+                dict = dict as Dictionary
+                self.secondReserveShakeVC = self.renderShakeVC(dict)
+            })
+            task.resume()
+        })
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            //make URL of google feed api
+            var urlString = "http://localhost:3000/contents"
+            var url = NSURL(string: urlString)
+
+            //download by NSSession
+            var task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler:{
+//                var task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler:{data, response, error in
+                [unowned self]
+                (data, response, error) -> Void in
+                //convert json data to dictionary
+                // force downcast
+                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+
+                println(dict)
+                dict = dict as Dictionary
+                self.thirdReserveShakeVC = self.renderShakeVC(dict)
+            })
+            task.resume()
+        })
+
+
+
+//        firstReserveShakeVC = createShakeVC(contents.getNextURL())
+//        secondReserveShakeVC = createShakeVC(contents.getNextURL())
+//        thirdReserveShakeVC = createShakeVC(contents.getNextURL())
 //        firstReserveShakeVC = createShakeVC("http://www.apple.com")
 //        secondReserveShakeVC = createShakeVC("https://www.google.com")
 //        thirdReserveShakeVC = createShakeVC("https://flipboard.com/")
     }
 
-    func createShakeVC(urlStr:String) -> ShakeVC {
+//    func createShakeVC(urlStr:String) -> ShakeVC {
+//        let shakeVC = ShakeVC()
+//
+//        // delegate設定
+//        shakeVC.delegate = self
+//
+//        // webView読み込み
+//        shakeVC.loadShakeMainView(urlStr)
+//
+//        // アニメーションを設定する.
+//        shakeVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+//
+//        return shakeVC
+//    }
+
+    func renderShakeVC(json:NSDictionary) -> ShakeVC {
         let shakeVC = ShakeVC()
 
         // delegate設定
         shakeVC.delegate = self
 
-        // webView読み込み
-        shakeVC.loadShakeMainView(urlStr)
+        let type:String = json["type"] as! String
+        let url:String = json["url"] as! String
+
+        // View読み込み
+        if type == "image" {
+            shakeVC.loadShakeMainView(url)
+        } else if type == "html" {
+            shakeVC.loadShakeMainView(url)
+        }
 
         // アニメーションを設定する.
         shakeVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
@@ -111,7 +195,30 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
 //        })
         firstReserveShakeVC = secondReserveShakeVC
         secondReserveShakeVC = thirdReserveShakeVC
-        thirdReserveShakeVC = createShakeVC(contents.getNextURL())
+
+
+        // TODO:共通化 ++++++++++++++++++++++++++++++++++++++++
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            //make URL of google feed api
+            var urlString = "http://localhost:3000/contents"
+            var url = NSURL(string: urlString)
+
+            //download by NSSession
+            var task = NSURLSession.sharedSession().dataTaskWithURL(url!, completionHandler:{
+                [unowned self]
+                (data, response, error) -> Void in
+                //convert json data to dictionary
+                // force downcast
+                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                dict = dict as Dictionary
+
+                println(dict)
+                self.thirdReserveShakeVC = self.renderShakeVC(dict)
+            })
+            task.resume()
+        })
+        // ここまで ++++++++++++++++++++++++++++++++++++++++
+
         count!++
 
         println("count:\(count) ")
