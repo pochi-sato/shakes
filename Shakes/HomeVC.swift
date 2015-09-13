@@ -117,11 +117,7 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
         let url:String = json["url"] as! String
 
         // View読み込み
-        if type == "image" {
-            shakeVC.loadShakeMainView(url)
-        } else if type == "html" {
-            shakeVC.loadShakeMainView(url)
-        }
+        shakeVC.loadShakeMainView(type, urlStr:url)
 
         // アニメーションを設定する.
         shakeVC.modalTransitionStyle = UIModalTransitionStyle.PartialCurl

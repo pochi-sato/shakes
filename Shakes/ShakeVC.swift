@@ -17,9 +17,16 @@ class ShakeVC: UIViewController, UIWebViewDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    func loadShakeMainView(urlStr: String) {
-//        self.loadWebView(urlStr)
-        self.loadImageView(urlStr)
+    func loadShakeMainView(type: String, urlStr: String) {
+
+
+        // TODO: ここがうまくいかない。loadwebViewがうまくうごかない、、
+        if type == "imgae" {
+            self.loadImageView(urlStr)
+        } else if type == "html" {
+////            self.loadImageView(urlStr)
+            self.loadWebView(urlStr)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,17 +72,19 @@ extension ShakeVC {
 
     func loadWebView(urlStr: String) {
         // WebViewを生成.
-        myWebView = UIWebView()
+        dispatch_sync(dispatch_get_main_queue(), {
+            self.myWebView = UIWebView()
 
         // Delegateを設定する.
-        myWebView.delegate = self
+        self.myWebView.delegate = self
 
         // WebViewのサイズを設定する.
-        myWebView.frame = self.view.bounds
+        self.myWebView.frame = self.view.bounds
 
         // Viewに追加する.
-        self.view.addSubview(myWebView)
+        self.view.addSubview(self.myWebView)
 
+        })
         // URLを設定する.
         let url: NSURL = NSURL(string: urlStr)!
 
