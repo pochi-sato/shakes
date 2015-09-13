@@ -7,7 +7,7 @@ class ViewAnimation: NSObject {
         case PoyoPoyo, Spring, Reversal, Spin, Expansion, Move
     }
 
-    class func changedValue(animateType: AnimateType, parentView: UIView, targetView: UIView) {
+    class func apply(animateType: AnimateType, parentView: UIView, targetView: UIView) {
 
         let initialFrame = targetView.frame
 //        targetView.center = parentView.center

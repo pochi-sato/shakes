@@ -174,8 +174,8 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
 
         // >>>>>ボヨンver
         self.view.addSubview(firstReserveShakeVC.view)
-        ViewAnimation.changedValue(ViewAnimation.AnimateType.PoyoPoyo as ViewAnimation.AnimateType, parentView: self.view as UIView, targetView: self.firstReserveShakeVC.myImageView! as UIView)
-        ViewAnimation.changedValue(ViewAnimation.AnimateType.PoyoPoyo as ViewAnimation.AnimateType, parentView: self.firstReserveShakeVC.view! as UIView, targetView: countView as UIView)
+        ViewAnimation.apply(ViewAnimation.AnimateType.PoyoPoyo as ViewAnimation.AnimateType, parentView: self.view as UIView, targetView: self.firstReserveShakeVC.myImageView! as UIView)
+        ViewAnimation.apply(ViewAnimation.AnimateType.PoyoPoyo as ViewAnimation.AnimateType, parentView: self.firstReserveShakeVC.view! as UIView, targetView: countView as UIView)
 
         // =====ぺろりんver
         // Viewの移動する.
