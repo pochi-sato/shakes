@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  Shakes
-//
-//  Created by Takuto Sato on 2015/08/23.
-//  Copyright (c) 2015年 Fringe81 co, Ltd. All rights reserved.
-//
+// Copyright (c) 2015 Takuto Sato All rights reserved.
 
 import UIKit
 

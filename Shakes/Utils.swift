@@ -1,7 +1,4 @@
-//
-// Created by Takuto Sato on 15/08/30.
-// Copyright (c) 2015 Fringe81 co, Ltd. All rights reserved.
-//
+// Copyright (c) 2015 Takuto Sato All rights reserved.
 
 import UIKit
 
