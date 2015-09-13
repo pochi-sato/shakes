@@ -16,7 +16,7 @@
 		CB7B71CEFE305555513159BC /* ShakeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7671701D605EFA454279 /* ShakeDelegate.swift */; };
 		CB7B747BED40F8161B638FE3 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B71EB52DF9D4A0A4DCC72 /* Contents.swift */; };
 		CB7B74CFEFAE8F527E3B8625 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7A3D406D2F9FCEA7F55E /* Utils.swift */; };
-		CB7B789A2D1F1D4D17063258 /* ShakeVCAnimateEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7EA120D05B74F0D2F4DC /* ShakeVCAnimateEx.swift */; };
+		CB7B789A2D1F1D4D17063258 /* ViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7EA120D05B74F0D2F4DC /* ViewAnimation.swift */; };
 		CB7B78EDCA7F29740987B699 /* ShakeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B7A60551FF9ED3892B6AD /* ShakeVC.swift */; };
 		CB7B79692E8467F969E19907 /* UIColorEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B78B537C9C4506BAEAA89 /* UIColorEx.swift */; };
 		CB7B7FC89BE031F7B3A2263F /* ShakeCountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7B72641495DB794FB1EBFB /* ShakeCountLabel.swift */; };
@@ -49,7 +49,7 @@
 		CB7B78B537C9C4506BAEAA89 /* UIColorEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorEx.swift; sourceTree = "<group>"; };
 		CB7B7A3D406D2F9FCEA7F55E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		CB7B7A60551FF9ED3892B6AD /* ShakeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeVC.swift; sourceTree = "<group>"; };
-		CB7B7EA120D05B74F0D2F4DC /* ShakeVCAnimateEx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeVCAnimateEx.swift; sourceTree = "<group>"; };
+		CB7B7EA120D05B74F0D2F4DC /* ViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 				CB7B72641495DB794FB1EBFB /* ShakeCountLabel.swift */,
 				CB7B78B537C9C4506BAEAA89 /* UIColorEx.swift */,
 				CB7B7A3D406D2F9FCEA7F55E /* Utils.swift */,
-				CB7B7EA120D05B74F0D2F4DC /* ShakeVCAnimateEx.swift */,
+				CB7B7EA120D05B74F0D2F4DC /* ViewAnimation.swift */,
 			);
 			path = Shakes;
 			sourceTree = "<group>";
@@ -244,7 +244,7 @@
 				CB7B7FC89BE031F7B3A2263F /* ShakeCountLabel.swift in Sources */,
 				CB7B79692E8467F969E19907 /* UIColorEx.swift in Sources */,
 				CB7B74CFEFAE8F527E3B8625 /* Utils.swift in Sources */,
-				CB7B789A2D1F1D4D17063258 /* ShakeVCAnimateEx.swift in Sources */,
+				CB7B789A2D1F1D4D17063258 /* ViewAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
