@@ -5,8 +5,9 @@ import UIKit
 class ShakeVC: UIViewController, UIWebViewDelegate {
     var delegate: ShakeDelegate!
     private var myWebView: ContentWebView!
-    private var myImage: ContentImageView!
-    var myImageView: UIImageView!
+    private var myImage: UIImage!
+    var myImageView: ContentImageView!
+//    var myImageView: UIImageView!
 
 
     override func viewDidLoad() {
@@ -34,9 +35,9 @@ class ShakeVC: UIViewController, UIWebViewDelegate {
     /*
     シェイク開始
     */
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-//            println("shake start in shakevc!!!")
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event!.type == UIEventType.Motion && event!.subtype == UIEventSubtype.MotionShake {
+//            print("shake start in shakevc!!!")
             // 開始時の処理
             delegate.onShake(self);
         }
@@ -45,9 +46,9 @@ class ShakeVC: UIViewController, UIWebViewDelegate {
     /*
     シェイク終了
     */
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-//            println("shake end in shakevc!!!")
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event!.type == UIEventType.Motion && event!.subtype == UIEventSubtype.MotionShake {
+//            print("shake end in shakevc!!!")
             // 終了時の処理
         }
     }
@@ -56,7 +57,7 @@ class ShakeVC: UIViewController, UIWebViewDelegate {
         self.view.frame = UIScreen.mainScreen().bounds
         self.view.backgroundColor = UIColor.hexStr("F9F8FF", alpha: 0.9)
 //        self.view.backgroundColor = UIColor.blackColor()
-        self.myImageView = UIImageView(frame: UIScreen.mainScreen().bounds)
+        self.myImageView = ContentImageView(frame: UIScreen.mainScreen().bounds)
         self.myImageView.contentMode = UIViewContentMode.ScaleAspectFit
         self.myImageView.image = self.myImage
         self.view.addSubview(self.myImageView)
@@ -70,7 +71,7 @@ extension ShakeVC {
     func loadWebView(urlStr: String) {
         // WebViewを生成.
         dispatch_sync(dispatch_get_main_queue(), {
-            self.myWebView = UIWebView()
+            self.myWebView = ContentWebView()
 
         // Delegateを設定する.
         self.myWebView.delegate = self
@@ -97,14 +98,14 @@ extension ShakeVC {
     Pageがすべて読み込み終わった時呼ばれるデリゲートメソッド.
     */
     func webViewDidFinishLoad(webView: UIWebView) {
-//        println("webViewDidFinishLoad")
+//        print("webViewDidFinishLoad")
     }
 
     /*
     Pageがloadされ始めた時、呼ばれるデリゲートメソッド.
     */
     func webViewDidStartLoad(webView: UIWebView) {
-//        println("webViewDidStartLoad")
+//        print("webViewDidStartLoad")
     }
 
 }
@@ -121,7 +122,7 @@ extension ShakeVC {
         // 通信のタスクを生成.
         let myTask = mySession.dataTaskWithURL(myUrl, completionHandler: {
             (data, response, err) in
-            self.myImage = UIImage(data: data)
+            self.myImage = UIImage(data: data!)
         })
         // タスクの実行.
         myTask.resume()

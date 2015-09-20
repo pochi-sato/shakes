@@ -2,6 +2,6 @@
 
 import UIKit
 
-class contentWebView:UIWebView, UIWebViewDelegate {
+class ContentWebView:UIWebView, UIWebViewDelegate {
 
 }

@@ -2,6 +2,5 @@
 
 import UIKit
 
-class contentImageView : UIImageView {
-
+class ContentImageView : UIImageView {
 }

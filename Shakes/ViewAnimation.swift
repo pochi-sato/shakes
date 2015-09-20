@@ -200,7 +200,7 @@ class ViewAnimation: NSObject {
             })
 
         default:
-            println("error!")
+            print("error!")
         }
     }
 }

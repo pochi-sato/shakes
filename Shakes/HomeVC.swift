@@ -26,10 +26,10 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
                 (data, response, error) -> Void in
                 //convert json data to dictionary
                 // force downcast
-                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                var dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                 dict = dict as Dictionary
 
-                println(dict)
+                print(dict)
                 self.firstReserveShakeVC = self.renderShakeVC(dict)
             })
             task.resume()
@@ -46,9 +46,9 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
                 (data, response, error) -> Void in
                 //convert json data to dictionary
                 // force downcast
-                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                var dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
 
-                println(dict)
+                print(dict)
                 dict = dict as Dictionary
                 self.secondReserveShakeVC = self.renderShakeVC(dict)
             })
@@ -67,9 +67,9 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
                 (data, response, error) -> Void in
                 //convert json data to dictionary
                 // force downcast
-                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                var dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
 
-                println(dict)
+                print(dict)
                 dict = dict as Dictionary
                 self.thirdReserveShakeVC = self.renderShakeVC(dict)
             })
@@ -123,14 +123,14 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
     Pageがすべて読み込み終わった時呼ばれるデリゲートメソッド.
     */
     func webViewDidFinishLoad(webView: UIWebView) {
-        println("webViewDidFinishLoad")
+        print("webViewDidFinishLoad")
     }
 
     /*
     Pageがloadされ始めた時、呼ばれるデリゲートメソッド.
     */
     func webViewDidStartLoad(webView: UIWebView) {
-        println("webViewDidStartLoad")
+        print("webViewDidStartLoad")
     }
 
     override func didReceiveMemoryWarning() {
@@ -148,9 +148,9 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
     /*
     シェイク開始
     */
-    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
-//            println("shake start!!!")
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event!.type == UIEventType.Motion && event!.subtype == UIEventSubtype.MotionShake {
+//            print("shake start!!!")
             // 開始時の処理
             self.onShake(self)
         }
@@ -159,15 +159,15 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
     /*
     シェイク終了
     */
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event!.type == UIEventType.Motion && event!.subtype == UIEventSubtype.MotionShake {
             // 終了時の処理
-//            println("shake end!!!")
+//            print("shake end!!!")
         }
     }
 
     func onShake(presentVC:UIViewController) {
-//        println("onshake")
+//        print("onshake")
 
         let countView = ShakeCountLabel(count: count)
         firstReserveShakeVC.view.addSubview(countView)
@@ -180,7 +180,7 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
         // =====ぺろりんver
         // Viewの移動する.
 //        presentVC.presentViewController(firstReserveShakeVC, animated: false, completion: {
-//            println("おわったで")
+//            print("おわったで")
 //            self.changedValue(AnimateType.Spring as AnimateType, parentView: self.firstReserveShakeVC.view! as UIView, targetView: countView as UIView)
 //        })
         firstReserveShakeVC = secondReserveShakeVC
@@ -199,10 +199,10 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
                 (data, response, error) -> Void in
                 //convert json data to dictionary
                 // force downcast
-                var dict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
+                var dict = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                 dict = dict as Dictionary
 
-                println(dict)
+                print(dict)
                 self.thirdReserveShakeVC = self.renderShakeVC(dict)
             })
             task.resume()
@@ -211,7 +211,7 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
 
         count!++
 
-        println("count:\(count) ")
+        print("count:\(count) ")
     }
 }
 
