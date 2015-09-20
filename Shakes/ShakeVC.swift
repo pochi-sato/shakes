@@ -4,8 +4,8 @@ import UIKit
 
 class ShakeVC: UIViewController, UIWebViewDelegate {
     var delegate: ShakeDelegate!
-    private var myWebView: UIWebView!
-    private var myImage: UIImage!
+    private var myWebView: ContentWebView!
+    private var myImage: ContentImageView!
     var myImageView: UIImageView!
 
 

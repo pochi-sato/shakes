@@ -7,7 +7,7 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
     private var firstReserveShakeVC: ShakeVC!
     private var secondReserveShakeVC: ShakeVC!
     private var thirdReserveShakeVC: ShakeVC!
-    private var contents: Contents! = Contents()
+//    private var contents: Contents! = Contents()
 
     private var count: Int! = 0
 
@@ -187,7 +187,7 @@ class HomeVC: UIViewController, UIWebViewDelegate, ShakeDelegate {
         secondReserveShakeVC = thirdReserveShakeVC
 
 
-        // TODO:共通化 ++++++++++++++++++++++++++++++++++++++++
+        // TODO:contentsFetcherに共通化 ++++++++++++++++++++++++++++++++++++++++
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             //make URL of google feed api
             var urlString = "http://localhost:3000/contents"
